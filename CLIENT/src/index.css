@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', ''
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#navbar{
+  background-color: #5bb872;
+}
+
+.jumbotron{
+  min-height: 100px;
+  max-height: 100px;
+  background-color:#5bb872;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  font-family:cursive;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+#del_text{
+  font-family:cursive;
+  color: red;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#del_text:hover{
+  font-weight: bolder;
+  color:black;
+}
+
+.footer{
+  font-family:cursive;
+  font-size: 12px;
+}
+
+button{
+  display: inline-flexbox
+}
+
+#notes_list{
+  min-height: 350;
+  max-height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.selected{
+  color:#d33c69;
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+.link{
+  color:white;
+  text-decoration: none;
+  margin-left: 10px;
+  float:right;
+}
+
+.link:hover{
+  color:white;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.list-item{
+  font-family:cursive;
+  font-size: 12px;
+  cursor:pointer;
+  text-overflow: ellipsis;
+}
+
+.list-item:hover{
+  background-color: #d1ced341;
+  padding:4px;
+  color:#d33c69;  
+}
+
+#search:focus{
+  border: 2px inset #d33c69;
+}
+
+#landingDiv{
+  margin-top: 150px;
+  border-bottom: 10px inset #5bb872;
+}
+
+#google-btn{
+  background-color: #5c5cf8;
+  border: 1px inset #5c5cf8;
+
+}
+
+#login-btn{
+  background-color: #5bb872;
+  border: 1px inset #5bb872;
+}
+
+@media(max-width: 792px){
+
+  #landingDiv{
+    margin-top: 25px;
+    border-bottom: 10px inset #5bb872;
+  }
+
+  .jumbotron{
+    min-height: 180px;
+    max-height: 180px;
+    background-color:#5bb872;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-bottom:5px
+  
+  }
+
+  #imagery{
+    width: 300px;
+  }
+
+  button{
+    display: inline-block
+  }
+
+  #notes_list{
+    min-height: 115px;
+    max-height: 115px;
+    overflow-y: scroll;
+  }
+  
+}
