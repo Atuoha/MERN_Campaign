@@ -30,9 +30,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-// google sigin
+// Routes
 const index = require('./controller/index')
 app.use('/', index)
+
+const billing = require('./controller/billing')
+app.use('/', billing)
 
 
 app.listen(PORT, ()=>{

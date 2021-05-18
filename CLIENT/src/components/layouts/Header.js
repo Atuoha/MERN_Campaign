@@ -77,7 +77,7 @@ class Header extends Component{
                 return(
                     <>
                         <NavLink className="link" to="/create">Create</NavLink>
-                        <NavLink  className="link" to="/dashboard">Dashboard</NavLink>
+                        <NavLink  className="link" to="/dashboard">Surveys</NavLink>
                         <NavLink className="link" to="/profile">Profile</NavLink>
                         <li className="link"> <Payments /> </li>
 

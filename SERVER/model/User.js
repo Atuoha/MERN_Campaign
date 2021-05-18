@@ -19,6 +19,11 @@ const UserSchema = new Schema({
         type: String
     },
 
+    credit:{
+        type: Number,
+        default: 0
+    },
+
     token:{
         type: String
     },
