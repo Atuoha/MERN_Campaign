@@ -7,6 +7,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const express = require('express'),
     app = express(),
     router = express.Router(),
+    auth = require('../config/authenticate'),
     User = require('../model/User');
 
 router.get('/*', (req, res, next)=>{
@@ -16,10 +17,8 @@ router.get('/*', (req, res, next)=>{
 
 
 // handling stripe payment
-router.post('/api/stripe', (req, res)=>{
-    if(!req.user){
-       return res.status(402).json({error: "Sign in to continue"})
-    }
+router.post('/api/stripe', auth, (req, res)=>{
+   
     stripe.charges.create({
         amount: 500,
         currency: "usd",

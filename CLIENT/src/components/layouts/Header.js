@@ -55,7 +55,7 @@ class Header extends Component{
                 return(
                     <>
                         <button onClick={this.logout} className="link btn" id="login-btn">Sign Out <i className="fa fa-user"></i></button>
-                        <button className="link btn" id="google-btn">Available Credits: 0 <i className="fa fa-check"></i></button>
+                        <button className="link btn" id="google-btn">Available Credits: {this.props.auth.credit} <i className="fa fa-check"></i></button>
                     </>
                 )
         }
