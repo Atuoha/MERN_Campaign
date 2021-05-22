@@ -17,7 +17,7 @@ router.get('/*', (req, res, next)=>{
 
 
 // handling stripe payment
-router.post('/api/stripe', auth, (req, res)=>{
+router.post('/', auth, (req, res)=>{
    
     stripe.charges.create({
         amount: 500,

@@ -111,6 +111,10 @@ button{
 
 @media(max-width: 792px){
 
+  #icon-money{
+    display: none;
+  }
+
   #landingDiv{
     margin-top: 25px;
     border-bottom: 10px inset #5bb872;

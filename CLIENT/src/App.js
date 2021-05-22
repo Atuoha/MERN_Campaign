@@ -4,6 +4,7 @@ import Footer from './components/layouts/Footer'
 import Header from './components/layouts/Header'
 import Landing from './components/Landing'
 import Dashboard from './components/Dashboard'
+import SurveyNew from './components/SurveyNew'
 import Signin from './components/screens/Signin'
 import Signup from './components/screens/Signup'
 import Forgot from './components/screens/Forgot'
@@ -33,6 +34,7 @@ class App extends Component {
             <Header />
               <Route exact path="/" component={Landing} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/survey/new" component={SurveyNew} />
               <Route path="/signin" component={Signin} />
               <Route path="/signup" component={Signup} />
               <Route path="/forgot" component={Forgot} />

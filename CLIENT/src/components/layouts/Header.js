@@ -55,7 +55,8 @@ class Header extends Component{
                 return(
                     <>
                         <button onClick={this.logout} className="link btn" id="login-btn">Sign Out <i className="fa fa-user"></i></button>
-                        <button className="link btn" id="google-btn">Available Credits: {this.props.auth.credit} <i className="fa fa-check"></i></button>
+                        <button className="link btn" id="google-btn">Credits: {this.props.auth.credit} <i className="fa fa-check"></i></button>
+                        <button className="link btn" id="login-btn"> <Payments /> </button>
                     </>
                 )
         }
@@ -76,11 +77,10 @@ class Header extends Component{
             default:
                 return(
                     <>
-                        <NavLink className="link" to="/create">Create</NavLink>
+                        <NavLink className="link" to="/survey/new">Create</NavLink>
                         <NavLink  className="link" to="/dashboard">Surveys</NavLink>
                         <NavLink className="link" to="/profile">Profile</NavLink>
-                        <li className="link"> <Payments /> </li>
-
+                       
                     </>
                 )
         }
