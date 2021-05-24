@@ -29,16 +29,17 @@ const Profile = ()=>{
                             <img src="./user.jpg" alt="personal-imagery" width="250" />
 
                             <table className="table table-striped">
-                                <tr>
-                                    <th><i className="fa fa-user"></i> Name</th>
-                                    <td>{name? name: ""}</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th><i className="fa fa-user"></i> Name</th>
+                                        <td>{name? name: ""}</td>
+                                    </tr>
 
-                                <tr>
-                                    <th><i className="fa fa-envelope"></i> Email</th>
-                                    <td>{email? email: ""}</td>
-                                </tr>
-
+                                    <tr>
+                                        <th><i className="fa fa-envelope"></i> Email</th>
+                                        <td>{email? email: ""}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <button onClick={()=>edit_profile()} className="btn btn-success btn-block"><i className="fa fa-pencil"></i> Edit Profile</button>
                         </div>

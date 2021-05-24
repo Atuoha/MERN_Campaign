@@ -12,7 +12,7 @@ const SurveyNew = ()=>{
     
 
     const postData = ()=>{
-        fetch('/api/survery', {
+        fetch('/api/survey', {
             method: "Post",
             headers:{
                 "Content-Type": "application/json"
@@ -37,10 +37,10 @@ const SurveyNew = ()=>{
             }else{
                 let response_paragraph = document.getElementById('alert');
                 ReactDOM.findDOMNode(response_paragraph).style.display = 'block'
-                ReactDOM.findDOMNode(response_paragraph).innerHTML = `<a href="#" class="close" data-dismiss="alert" aria-label="close" >&times;</a> ${data.response} <i className="fa fa-check-circle"><i>`
+                ReactDOM.findDOMNode(response_paragraph).innerHTML = `<a href="#" class="close" data-dismiss="alert" aria-label="close" >&times;</a> ${data.response.title} has been recorded <i className="fa fa-check-circle"><i>`
                 ReactDOM.findDOMNode(response_paragraph).className = 'alert alert-success'
                 setTimeout(()=>{
-                    history.push('/signin');
+                    history.push('/dashboard');
                 }, 5000)
             }
         })
@@ -50,29 +50,29 @@ const SurveyNew = ()=>{
 
         return(
             <div className="container col-md-5 mx-auto">
-            <h2 className="text-center">Create a new Survey <i className="fa fa-plus"></i></h2>
+            {/* <h2 className="text-center">New Survey <i className="fa fa-plus"></i></h2> */}
             <form >
                 <p id="alert"></p>
                 <div className="form-group">
-                    <label>Title <i className="fa fa-check-square"></i></label>  
-                    <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" className="form-control" placeholder="Enter Title" required autoFocus />  
+                    <label>Title <i className="fa fa-text-height"></i></label>  
+                    <input name="title" value={title} onChange={(e)=>setTitle(e.target.value)} type="text" className="form-control" placeholder="Enter Title" required autoFocus />  
                 </div> 
 
 
                 <div className="form-group">
-                    <label>Subject <i className="fa fa-user"></i></label>  
-                    <input value={subject} onChange={(e)=>setSubject(e.target.value)} type="text" className="form-control" placeholder="Enter Subject" required  />  
+                    <label>Subject <i className="fa fa-check-square"></i></label>  
+                    <input name="subject" value={subject} onChange={(e)=>setSubject(e.target.value)} type="text" className="form-control" placeholder="Enter Subject" required  />  
                 </div>
 
                  <div className="form-group">
-                    <label>Body <i className="fa fa-user"></i></label>  
-                    <textarea cols="3" rows="5" value={body} onChange={(e)=>setBody(e.target.value)} className="form-control" placeholder="Enter Body" required ></textarea>
+                    <label>Body <i className="fa fa-paragraph"></i></label>  
+                    <textarea name="body" cols="3" rows="3" value={body} onChange={(e)=>setBody(e.target.value)} className="form-control" placeholder="Enter Body" required ></textarea>
                 </div>
 
 
                  <div className="form-group">
-                    <label>Recipients <i className="fa fa-user"></i></label>  
-                    <textarea cols="5" rows="2"  value={recipients} onChange={(e)=>setRecipients(e.target.value)} type="text" className="form-control" placeholder="Enter Recipients, separate " required ></textarea>
+                    <label>Recipients <i className="fa fa-envelope"></i></label>  
+                    <textarea name="recipients" cols="5" rows="2"  value={recipients} onChange={(e)=>setRecipients(e.target.value)} type="text" className="form-control" placeholder="Enter recipients, separate with comma" required ></textarea>
                 </div> 
                
 
@@ -80,7 +80,7 @@ const SurveyNew = ()=>{
 
 
                 <div className="form-group">
-                    <button type="button" onClick={()=>postData()} className="btn btn-success btn-block">Create Account <i className="fa fa-user-plus"></i></button>
+                    <button type="button" onClick={()=>postData()} className="btn btn-success btn-block">Sumbit Survey <i className="fa fa-check-square"></i></button>
                 </div> 
             </form> 
         </div>
