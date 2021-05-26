@@ -1,8 +1,8 @@
-const redirect_domain = ''
+let redirect_domain = ''
 if(process.env.NODE_ENV === 'production'){
-    redirect_domain = 'https://.herokuapp.com'
+    redirect_domain = 'https://.herokuapp.com/thankyou'
 }else{
-    redirect_domain = 'http://localhost:2029'
+    redirect_domain = 'http://localhost:2029/thankyou'
 }
 
 

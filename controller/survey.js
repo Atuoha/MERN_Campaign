@@ -1,7 +1,7 @@
 const express =  require('express'),
     app = express(),
     router  = express.Router(),
-    Mailer = require('../services/Mailer'),
+    // Mailer = require('../services/Mailer'),
     mailTemplate = require('../services/mailTemplate'),
     Survey = require('../model/Survey'),
     auth = require('../config/authenticate'),
@@ -21,7 +21,7 @@ router.get('/', (req, res)=>{
 
 router.post('/', auth, (req, res)=>{
     if(req.body.title && req.body.subject && req.body.body && req.body.recipients){
-        User.findById(req.user._id)
+         User.findById(req.user._id)
         .then(user=>{
             if(user.credit < 1){
                 return res.status(402).json({error: "Survey not sent. Low on credits. Credit now!!"})
@@ -37,13 +37,20 @@ router.post('/', auth, (req, res)=>{
             newSurvey.dateSent = Date.now()
 
                 // handle mailing
-            const mailer = new Mailer(survey, mailTemplate(survey))
+            //  const mailer = new Mailer(survey, mailTemplate(survey))
             try {
-                await mailer.send()
-                await newSurvey.save()
-                user.credit -= 1
-                const user =  await user.save()
-                res.status(202).json({user})
+                // mailer.send()
+                newSurvey.save()
+                .then(response=>{
+                    user.credit -= 1
+                    user.save()
+                    .then(response=>{
+                        res.status(202).json({user})
+                    })
+                    .catch(err=>console.log(err))
+                })
+                .catch(err=>console.log(err))
+                
             } catch (error) {
                 res.status(402).json({error: "An error occurred!"})
             }

@@ -109,7 +109,16 @@ button{
   border: 1px inset #5bb872;
 }
 
+#thankyou-img{
+  margin-top: 50px
+}
+
 @media(max-width: 792px){
+
+  #thankyou-img{
+    width: 380px;
+    margin-top: 50px
+  }
 
   #icon-money{
     display: none;

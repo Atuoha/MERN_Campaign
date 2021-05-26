@@ -35,7 +35,7 @@ const Dashboard = ()=>{
                                                     </p>
 
                                                     <p><b>Recipients: </b> 
-                                                        {survey.recipients}
+                                                        {survey.recipients.email}
                                                     </p>
                                             </Card.Body>
                                     </Card>

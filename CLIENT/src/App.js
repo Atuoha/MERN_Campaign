@@ -4,7 +4,7 @@ import Footer from './components/layouts/Footer'
 import Header from './components/layouts/Header'
 import Landing from './components/Landing'
 import Dashboard from './components/Dashboard'
-import SurveyNew from './components/SurveyNew'
+import SurveyNew from './components/surveys/SurveyNew'
 import Signin from './components/screens/Signin'
 import Signup from './components/screens/Signup'
 import Forgot from './components/screens/Forgot'
@@ -13,6 +13,8 @@ import Edit_Profile from './components/screens/Edit_Profile'
 import Reset from './components/screens/Reset'
 import { connect } from 'react-redux'
 import * as actions from './actions'
+import Thankyou from './components/Thankyou'
+import SurveyFormReview from './components/surveys/SurveyFormReview'
 
 class App extends Component {
   constructor(props){
@@ -41,6 +43,8 @@ class App extends Component {
               <Route path="/profile" component={Profile} />
               <Route path="/edit_profile" component={Edit_Profile} />
               <Route path="/token/:token" component={Reset} />
+              <Route path="/thankyou" component={Thankyou} />
+              <Route path="/formreview" component={SurveyFormReview} />
 
             <Footer />
           </Router>   
