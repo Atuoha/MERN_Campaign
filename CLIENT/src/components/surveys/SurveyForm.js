@@ -1,38 +1,28 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form'
+import SurveyField from './SurveyField'
+import _ from 'lodash'
+
+const FIELDS = [
+    {label: "Survey Title", name: "title", placeholder: "Enter Title"},
+    {label: "Survey Subject", name: "subject", placeholder: "Enter Subject"},
+    {label: "Survey Body", name: "body", placeholder: "Enter Body"},
+    {label: "Survey Recipients", name: "recipients", placeholder: "Enter recipient's email"}
+]
+
 
 class SurveyForm extends Component {
 
-
     renderFields(){
-        return(
-           <>
-                 <div className="form-group">
-                    <label>Title <i className="fa fa-text-height"></i></label>  
-                    <Field type="text" name="title" className="form-control" component="input" placeholder="Enter Title" required autoFocus  />
-                    {/* <p className="alert alert-danger">{meta.error}</p> */}
-                </div> 
-
-
+        return _.map(FIELDS, ({label, name, placeholder})=>{
+            return(
                 <div className="form-group">
-                    <label>Subject <i className="fa fa-check-square"></i></label>  
-                    <Field type="text" name="subject" className="form-control" component="input" placeholder="Enter Subject" required  /> 
-                </div>
-
-                 <div className="form-group">
-                    <label>Body <i className="fa fa-paragraph"></i></label>  
-                    <Field type="textarea" cols="3" rows="3" name="body" className="form-control" component="textarea" placeholder="Enter Body" required  />
-                </div>
-
-
-                 <div className="form-group">
-                    <label>Recipients <i className="fa fa-envelope"></i></label>  
-                    <Field type="email" cols="5" rows="2" name="recipients" className="form-control" component="textarea" placeholder="Enter recipient's mail address(es), separate with comma" required  />
+                    <Field key={name} type="text" label={label} component={SurveyField} name={name} className="form-control" placeholder={placeholder} required autoFocus  />
                 </div> 
-               
-           </>
-        )
+             )
+        })
+      
     }
 
     render() {
@@ -55,9 +45,12 @@ class SurveyForm extends Component {
 function validate(values){
     let errors = {}
 
-    if(!values.title){
-        errors.title = 'Title can not be empty'
-    }
+    _.each(FIELDS, ({name})=>{
+        if(!values[name]){
+            errors[name] = `${name} can not empty!`
+        }
+    })
+
 
     return errors;
 }
