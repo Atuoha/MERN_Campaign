@@ -14,7 +14,7 @@ import Reset from './components/screens/Reset'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 import Thankyou from './components/Thankyou'
-import SurveyFormReview from './components/surveys/SurveyFormReview'
+// import SurveyFormReview from './components/surveys/SurveyFormReview'
 
 class App extends Component {
   constructor(props){
@@ -44,7 +44,7 @@ class App extends Component {
               <Route path="/edit_profile" component={Edit_Profile} />
               <Route path="/token/:token" component={Reset} />
               <Route path="/thankyou" component={Thankyou} />
-              <Route path="/formreview" component={SurveyFormReview} />
+              {/* <Route path="/formreview" component={SurveyFormReview} /> */}
 
             <Footer />
           </Router>   

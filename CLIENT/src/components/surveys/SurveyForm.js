@@ -4,19 +4,12 @@ import { reduxForm, Field } from 'redux-form'
 import SurveyField from './SurveyField'
 import _ from 'lodash'
 import validateEmail from '../utils/validateEmail'
-
-const FIELDS = [
-    {label: "Survey Title", name: "title", placeholder: "Enter Title"},
-    {label: "Survey Subject", name: "subject", placeholder: "Enter Subject"},
-    {label: "Survey Body", name: "body", placeholder: "Enter Body"},
-    {label: "Survey Recipients", name: "recipients", placeholder: "Enter recipient's email"}
-]
-
+import formFields from './formField'
 
 class SurveyForm extends Component {
 
     renderFields(){
-        return _.map(FIELDS, ({label, name, placeholder})=>{
+        return _.map(formFields, ({label, name, placeholder})=>{
             return(
                 <div className="form-group">
                     <Field key={name} type="text" label={label} component={SurveyField} name={name} className="form-control" placeholder={placeholder} required autoFocus  />
@@ -30,7 +23,7 @@ class SurveyForm extends Component {
         return (
             <div className="container col-md-5 mx-auto">
             {/* <h2 className="text-center">New Survey <i className="fa fa-plus"></i></h2> */}
-            <form onSubmit={this.props.handleSubmit(values=>console.log(values))}>
+            <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
                 {this.renderFields()}
 
                 <div className="form-group">
@@ -48,7 +41,7 @@ function validate(values){
 
     errors.recipients = validateEmail(values.recipients || '') // validating email formate
 
-    _.each(FIELDS, ({name})=>{
+    _.each(formFields, ({name})=>{
         if(!values[name]){
             errors[name] = `${name} can not empty!`
         }
@@ -60,5 +53,6 @@ function validate(values){
 
 export default reduxForm({
     validate,
-    form: 'surveyForm'
+    form: 'surveyForm',
+    destroyOnUnmount: false
 }) (SurveyForm)
