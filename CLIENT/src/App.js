@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Footer from './components/layouts/Footer'
 import Header from './components/layouts/Header'
 import Landing from './components/Landing'
-import Dashboard from './components/Dashboard'
+import Surveys from './components/Surveys'
 import SurveyNew from './components/surveys/SurveyNew'
 import Signin from './components/screens/Signin'
 import Signup from './components/screens/Signup'
@@ -14,6 +14,9 @@ import Reset from './components/screens/Reset'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 import Thankyou from './components/Thankyou'
+import Multi_searched_surveys from './components/surveys/Multi_searched_surveys'
+import Single_searched_survey from './components/surveys/Single_searched_survey'
+
 // import SurveyFormReview from './components/surveys/SurveyFormReview'
 
 class App extends Component {
@@ -35,7 +38,7 @@ class App extends Component {
           <Router>
             <Header />
               <Route exact path="/" component={Landing} />
-              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/surveys" component={Surveys} />
               <Route path="/survey/new" component={SurveyNew} />
               <Route path="/signin" component={Signin} />
               <Route path="/signup" component={Signup} />
@@ -44,6 +47,8 @@ class App extends Component {
               <Route path="/edit_profile" component={Edit_Profile} />
               <Route path="/token/:token" component={Reset} />
               <Route path="/thankyou" component={Thankyou} />
+              <Route path="/multi_searched_surveys" component={Multi_searched_surveys} />
+              <Route path="/single_searched_survey" component={Single_searched_survey} />
               {/* <Route path="/formreview" component={SurveyFormReview} /> */}
 
             <Footer />

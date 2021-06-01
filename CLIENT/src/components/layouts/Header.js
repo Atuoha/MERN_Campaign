@@ -70,7 +70,6 @@ class Header extends Component{
             case false:
                 return(
                     <>
-                        <NavLink className="link" to="/create">Surveys</NavLink>
                         <NavLink className="link" to="/signup">Signup <i className="fa fa-user-plus"></i></NavLink>
                     </>
                 )
@@ -78,7 +77,7 @@ class Header extends Component{
                 return(
                     <>
                         <NavLink className="link" to="/survey/new">Create</NavLink>
-                        <NavLink  className="link" to="/dashboard">Surveys</NavLink>
+                        <NavLink  className="link" to="/surveys">Surveys</NavLink>
                         <NavLink className="link" to="/profile">Profile</NavLink>
                        
                     </>

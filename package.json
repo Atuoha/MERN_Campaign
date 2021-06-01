@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node app",
     "client": "npm start --prefix CLIENT",
-    "dev": "concurrently \"npm run server\" \"npm run client \" ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix CLIENT && npm run build --prefix CLIENT"
+    "dev": "concurrently \"npm run server\" \"npm run client \"  \"npm run webhook \" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix CLIENT && npm run build --prefix CLIENT",
+    "webhook": "lt -p 2029 -s fsdjlkjereradflkdjs"
   },
   "keywords": [],
   "author": "",

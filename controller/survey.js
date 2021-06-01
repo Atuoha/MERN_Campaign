@@ -65,4 +65,48 @@ router.post('/', auth, (req, res)=>{
 })
 
 
+
+router.delete('/delete', (req, res)=>{
+    // console.log('........receiving')
+    Survey.findOne({id: req.body.id})
+    .then(survey=>{
+        survey.delete()
+        .then(response=>{
+            res.status(200).json({response})
+        })
+        .catch(err=>console.log(err))
+    })
+    .catch(err=>console.log(err))
+})
+
+
+router.post('/webhooks', (req, res)=>{
+    console.log(req.body)
+    res.send({})
+})
+
+router.post('/search', (req, res)=>{
+    console.log('.......receiving')
+    const title = req.body.search
+    const regex = new RegExp(title, 'i')
+
+    Survey.find({$or: [{title: regex}] })
+    .then(surveys=>{
+        if(surveys.length > 1){
+            res.json({surveys})
+            console.log(surveys)
+        }else{
+            Survey.findOne({$or: [{title: regex}]})
+            .then(survey=>{
+                res.json({survey})
+                console.log(survey)
+
+            })
+            .catch(err=>console.log(err))
+        }
+    })
+    .catch(err=>console.log(err))
+
+})
+
 module.exports = router

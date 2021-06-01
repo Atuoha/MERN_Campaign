@@ -23,3 +23,15 @@ export const handleToken = (token)=>
         })
         .catch(err=>console.log(err))
     }
+
+
+export const submitSurvey = (values, history) =>
+    dispatch=>{
+        axios.post('/api/survey', values)
+        .then(response=>{
+            // history.push('/dashboard')  // Works perfectly with the aid of withRouter help function but doesn't give exactly the expected results
+           window.location.replace('/surveys')
+            dispatch({ type: FETCH_USER, payload: response.data })
+        })
+        .catch(err=>console.log(err))
+    }
